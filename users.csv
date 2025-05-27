@@ -1,0 +1,3 @@
+id,username,password,nama_lengkap,role,created_at,alamat,tempat_lahir,tanggal_lahir,pendidikan,email,photo
+1,admin,scrypt:32768:8:1$IaCQlMj5qtuvk8Lv$d0b5b403785cacc9640970c5dda71b8b71acd3e08a6d26ba97bd87809142828b8c764cd2eae2013696971728b45ba1e7e3edc76bf46e27a78581037cd59f295f,Atmin,admin,2025-05-07 06:12:37,,,,,,user_1.png
+3,andre,scrypt:32768:8:1$au788pvk4BW39HyM$a0ddf0ea377bebd425ac035797f80d83ec04ede4f68b2234fb0d95f298ce30dbde23fa3e84d9ad18dda8f7100acf19b4819af43d7abe986d215b00781c0916d6,wielino,user,2025-05-07 21:03:28,jawa,jawa,2002-07-17,ESEMKA,caucina@gmail.com,user_3.png
