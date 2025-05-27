@@ -7,15 +7,25 @@
         <i class="fas fa-plus"></i> Tambah Balita
     </a>
     <form method="GET" class="mb-3">
-    <div class="row">
-        <div class="col-md-4">
-            <input type="text" class="form-control" name="nama" placeholder="Cari Nama Balita" value="{{ request.args.get('nama', '') }}">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="nama" placeholder="Cari Nama Balita" value="{{ request.args.get('nama', '') }}">
+            </div>
+            <div class="col-md-4">
+                <select name="desa_id" class="form-control">
+                    <option value="">Semua Desa</option>
+                    {% for desa in desa_list %}
+                    <option value="{{ desa.id }}" {{ 'selected' if request.args.get('desa_id')|int == desa.id }}>
+                        {{ desa.nama_desa }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4 mt-2">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
         </div>
-        <div class="col-md-4 mt-2">
-            <button type="submit" class="btn btn-primary">Filter</button>
-        </div>
-    </div>
-</form>
+    </form>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead class="table-dark">
@@ -27,6 +37,9 @@
                     <th>Usia</th>
                     <th>Jenis Kelamin</th>
                     <th>Nama Orangtua</th>
+                    <th>Desa</th>
+                    <th>RT/RW</th>
+                    <th>Alamat</th>
                     <th>Jumlah Pengukuran</th>
                     <th>Aksi</th>
                 </tr>
@@ -41,6 +54,9 @@
                     <td>{{ b.usia_tahun }} tahun {{ b.usia_bulan }} bulan</td>
                     <td>{{ 'Laki-laki' if b.jenis_kelamin == 'L' else 'Perempuan' }}</td>
                     <td>{{ b.nama_ortu }}</td>
+                    <td>{{ b.nama_desa }}</td>
+                    <td>{{ b.rt }}/{{ b.rw }}</td>
+                    <td>{{ b.alamat }}</td>
                     <td>{{ b.jumlah_pengukuran }}</td>
                     <td>
                         <a href="{{ url_for('edit_balita', id=b.id) }}" class="btn btn-sm btn-warning">
